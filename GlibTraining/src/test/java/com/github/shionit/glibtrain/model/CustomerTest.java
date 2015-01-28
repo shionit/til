@@ -2,7 +2,7 @@ package com.github.shionit.glibtrain.model;
 
 import static com.google.common.truth.Truth.assertThat;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.junit.Test;
 
@@ -19,13 +19,14 @@ public class CustomerTest {
 	@Test
 	public final void testSetName() {
 		cust.setName("taro");
-		assertThat(cust.getName()).isEqualTo("jiro");
+		assertThat(cust.getName()).isNotEqualTo("jiro");
+		assertThat(cust.getName()).isEqualTo("taro");
 	}
 
 	@Test
 	public final void testGetBirthDate() {
 		assertThat(cust.getBirthDate()).isNull();
-		cust.setBirthDate(new Date());
+		cust.setBirthDate(LocalDate.of(2000, 1, 2));
 		assertThat(cust.getBirthDate()).isNotNull();
 	}
 
