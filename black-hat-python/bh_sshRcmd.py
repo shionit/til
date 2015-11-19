@@ -9,7 +9,7 @@ import subprocess
 def ssh_command(ip, user, passwd, command):
     client = paramiko.SSHClient()
     # client.load_host_keys('/home/justin/.ssh/known_hossts')
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy)
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.connect(ip, username=user, password=passwd)
     ssh_session = client.get_transport().open_session()
     if ssh_session.active:
@@ -29,4 +29,4 @@ def ssh_command(ip, user, passwd, command):
     return
 
 
-ssh_command('192.168.223.251', 'justin', 'lovesthepython', 'ClientConnected')
+ssh_command('localhost', 'justin', 'lovesthepython', 'ClientConnected')
