@@ -5,6 +5,9 @@ var app = require('app');
 // ウィンドウを作成するモジュール
 var BrowserWindow = require('browser-window');
 
+var Tray = require('tray');
+var Menu = require('menu');
+
 // クラッシュレポート
 require('crash-reporter').start();
 
@@ -33,4 +36,21 @@ app.on('ready', function() {
     mainWindow.on('closed', function() {
         mainWindow = null;
     });
+
+    // メニューアイコン設定
+    var appIcon = new Tray(__dirname + '/images/icon.png');
+    // コンテキストメニュー追加
+    var contextMenu = Menu.buildFromTemplate([
+        {label: '選択メニュー１', type: 'radio'},
+        {label: '選択メニュー２', type: 'radio'},
+        {type: 'separator'},
+        {label: 'サブメニュー', submenu: [
+            {label: 'サブメニュー１'},
+            {label: 'サブメニュー２'}
+        ]},
+        {label: '終了', accelerator: 'Command+Q', click: function() { app.quit(); }}
+    ]);
+    appIcon.setContextMenu(contextMenu);
+    // アイコンにマウスオーバーした時の説明
+    appIcon.setToolTip('This is sample.');
 });
