@@ -1,0 +1,22 @@
+{
+  "name": "electron-sample",
+  "version": "1.0.0",
+  "description": "Electron App Sample",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:shionit/electron-sample.git"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "shionit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shionit/electron-sample/issues"
+  },
+  "homepage": "https://github.com/shionit/electron-sample"
+}
