@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "My Second Extension",
+  "name": "My Third Extension",
   "description": "今いるページの背景色を変えるよ！",
   "version": "0.1",
 
@@ -9,9 +9,12 @@
     "tabs", "http://*/*"
   ],
 
+  "background": {
+    "scripts": ["background.js"]
+  },
+
   "browser_action": {
     "default_icon": "icon19.png",
-    "default_title": "My Second Extension",
-    "default_popup": "popup.html"
+    "default_title": "My Third Extension"
   }
 }
