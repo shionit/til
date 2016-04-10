@@ -1,17 +1,17 @@
 {
   "manifest_version": 2,
 
-  "name": "My First Extension",
-  "description": "はじめての拡張！",
+  "name": "My Second Extension",
+  "description": "今いるページの背景色を変えるよ！",
   "version": "0.1",
 
-  "background": {
-    "scripts": ["background.js"]
-  },
+  "permissions": [
+    "tabs", "http://*/*"
+  ],
 
   "browser_action": {
     "default_icon": "icon19.png",
-    "default_title": "My First Extension",
+    "default_title": "My Second Extension",
     "default_popup": "popup.html"
   }
 }
