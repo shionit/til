@@ -83,7 +83,7 @@ public class Company
         /**
          * Use a {@link Predicate} to find a {@link Customer} with the name given.
          */
-        Assert.fail("Implement this method as part of Exercise 2");
-        return null;
+        Predicate<Customer> withName =  c -> name.equals(c.getName());
+        return customers.detect(withName);
     }
 }
