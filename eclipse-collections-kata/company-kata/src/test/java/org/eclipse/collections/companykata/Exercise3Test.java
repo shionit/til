@@ -50,7 +50,7 @@ public class Exercise3Test extends CompanyDomainForKata
     @Test
     public void findCustomerNames()
     {
-        MutableList<String> names = this.company.getCustomers().collect(Customer::getName);
+        MutableList<String> names = this.company.getCustomers().collect(Customer.TO_NAME);
 
         MutableList<String> expectedNames = FastList.newListWith("Fred", "Mary", "Bill");
         Assert.assertEquals(expectedNames, names);
