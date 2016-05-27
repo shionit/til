@@ -12,6 +12,7 @@ package org.eclipse.collections.companykata;
 
 import org.eclipse.collections.api.block.predicate.Predicate;
 import org.eclipse.collections.api.list.MutableList;
+import org.eclipse.collections.impl.block.factory.Predicates;
 import org.eclipse.collections.impl.list.mutable.FastList;
 import org.junit.Assert;
 
@@ -48,13 +49,7 @@ public class Company
 
     public MutableList<Order> getOrders()
     {
-        Assert.fail("Refactor this code to use Eclipse Collections as part of Exercise 3");
-        MutableList<Order> orders = FastList.newList();
-        for (Customer customer : this.customers)
-        {
-            orders.addAll(customer.getOrders());
-        }
-        return orders;
+        return this.customers.flatCollect(Customer::getOrders);
     }
 
     public Customer getMostRecentCustomer()
@@ -83,7 +78,6 @@ public class Company
         /**
          * Use a {@link Predicate} to find a {@link Customer} with the name given.
          */
-        Predicate<Customer> withName =  c -> name.equals(c.getName());
-        return customers.detect(withName);
+        return customers.detect(Predicates.attributeEqual(Customer::getName, name));
     }
 }
