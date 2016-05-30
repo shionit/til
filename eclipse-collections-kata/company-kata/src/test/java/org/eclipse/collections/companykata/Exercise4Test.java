@@ -66,7 +66,7 @@ public class Exercise4Test extends CompanyDomainForKata
     public void whoSuppliesSandwichToaster()
     {
         // Create a Predicate that will check to see if a Supplier supplies a "sandwich toaster".
-        Predicate<Supplier> suppliesToaster = supplier -> ArrayIterate.contains(supplier.getItemNames(), "sandwich toaster");
+        Predicate<Supplier> suppliesToaster = supplier -> supplier.supplies("sandwich toaster");
 
         // Find one supplier that supplies toasters.
         Supplier toasterSupplier = ArrayIterate.detect(company.getSuppliers(), suppliesToaster);
@@ -81,7 +81,7 @@ public class Exercise4Test extends CompanyDomainForKata
         /**
          * Get the order values that are greater than 1.5.
          */
-        MutableList<Double> orderValues = ListIterate.collect(orders, Order::getValue);
+        MutableList<Double> orderValues = ListIterate.collect(orders, Order.TO_VALUE);
         MutableList<Double> filtered = orderValues.select(Predicates.greaterThan(1.5));
         Assert.assertEquals(FastList.newListWith(372.5, 1.75), filtered);
     }
@@ -93,7 +93,7 @@ public class Exercise4Test extends CompanyDomainForKata
         /**
          * Get the actual orders (not their double values) where those orders have a value greater than 2.0.
          */
-        MutableList<Order> filtered = ListIterate.select(orders, Predicates.attributeGreaterThan(Order::getValue, 2.0));
+        MutableList<Order> filtered = ListIterate.select(orders, Predicates.attributeGreaterThan(Order.TO_VALUE, 2.0));
         Assert.assertEquals(FastList.newListWith(Iterate.getFirst(this.company.getMostRecentCustomer().getOrders())), filtered);
     }
 }
