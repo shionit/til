@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.sound.sampled.Line;
+
 /**
  * Has a number, a {@link Customer}, a {@link List} of {@link LineItem}s, and a boolean that states whether or not the order
  * has been delivered. There is a class variable that contains the next order number.
@@ -59,6 +61,13 @@ public class Order
     public void addLineItem(LineItem aLineItem)
     {
         this.lineItems.add(aLineItem);
+    }
+
+    public void addLineItem(LineItem srcItem, int count)
+    {
+        for (int i = 0; i < count; i++) {
+            this.lineItems.add(new LineItem(srcItem.getName(), srcItem.getValue()));
+        }
     }
 
     public List<LineItem> getLineItems()

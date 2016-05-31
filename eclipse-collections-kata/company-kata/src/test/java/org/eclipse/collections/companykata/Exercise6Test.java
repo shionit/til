@@ -30,8 +30,8 @@ public class Exercise6Test extends CompanyDomainForKata
     public void sortedTotalOrderValue()
     {
         MutableList<Double> sortedTotalValues = company.getCustomers()
-                .collect(Customer::getTotalOrderValue)
-                .sortThis((x, y) -> x.compareTo(y));
+                .collect(Customer.TO_TOTAL_ORDER_VALUE)
+                .toSortedList();
 
         // Don't forget the handy utility methods getFirst() and getLast()...
         Assert.assertEquals("Highest total order value", Double.valueOf(857.0), sortedTotalValues.getLast());
@@ -45,7 +45,7 @@ public class Exercise6Test extends CompanyDomainForKata
     public void maximumTotalOrderValue()
     {
         Double maximumTotalOrderValue = company.getCustomers()
-                .collect(Customer::getTotalOrderValue)
+                .collect(Customer.TO_TOTAL_ORDER_VALUE)
                 .max();
         Assert.assertEquals("max value", Double.valueOf(857.0), maximumTotalOrderValue);
     }
@@ -57,7 +57,7 @@ public class Exercise6Test extends CompanyDomainForKata
     public void customerWithMaxTotalOrderValue()
     {
         Customer customerWithMaxTotalOrderValue = company.getCustomers()
-                .maxBy(Customer::getTotalOrderValue);
+                .maxBy(Customer.TO_TOTAL_ORDER_VALUE);
         Assert.assertEquals(this.company.getCustomerNamed("Mary"), customerWithMaxTotalOrderValue);
     }
 
@@ -67,7 +67,7 @@ public class Exercise6Test extends CompanyDomainForKata
     @Test
     public void supplierNamesAsTildeDelimitedString()
     {
-        String tildeSeparatedNames = ArrayIterate.collect(company.getSuppliers(), Supplier::getName)
+        String tildeSeparatedNames = ArrayIterate.collect(company.getSuppliers(), Supplier.TO_NAME)
                 .makeString("~");
         Assert.assertEquals(
                 "tilde separated names",
@@ -86,7 +86,7 @@ public class Exercise6Test extends CompanyDomainForKata
     public void deliverOrdersToLondon()
     {
         company.getCustomers()
-                .select(Predicates.attributeEqual(Customer::getCity, "London"))
+                .select(Predicates.attributeEqual(Customer.TO_CITY, "London"))
                 .flatCollect(Customer::getOrders)
                 .each(order -> order.deliver());
         Verify.assertAllSatisfy(this.company.getCustomerNamed("Fred").getOrders(), Order::isDelivered);

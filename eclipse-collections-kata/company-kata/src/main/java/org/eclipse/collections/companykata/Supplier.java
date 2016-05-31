@@ -11,7 +11,10 @@
 package org.eclipse.collections.companykata;
 
 import org.eclipse.collections.api.block.function.Function;
+import org.eclipse.collections.api.list.MutableList;
+import org.eclipse.collections.impl.list.mutable.FastList;
 import org.eclipse.collections.impl.utility.ArrayIterate;
+import org.eclipse.collections.impl.utility.StringIterate;
 
 /**
  * Suppliers have a name and an array of itemNames. Suppliers don't like lists - they prefer arrays....
@@ -21,6 +24,9 @@ public class Supplier
     public static final Function<Supplier, String> TO_NAME = Supplier::getName;
 
     public static final Function<Supplier, Integer> TO_NUMBER_OF_ITEMS = supplier -> supplier.getItemNames().length;
+
+    public static final Function<Supplier, MutableList<String>> TO_ITEM_NAMES =
+            supplier -> ArrayIterate.select(supplier.getItemNames(), x -> true);
 
     private final String name;
     private final String[] itemNames;
