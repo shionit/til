@@ -19,6 +19,7 @@ import org.eclipse.collections.api.list.MutableList;
 import org.eclipse.collections.api.map.MutableMap;
 import org.eclipse.collections.api.multimap.list.MutableListMultimap;
 import org.eclipse.collections.impl.bag.sorted.mutable.TreeBag;
+import org.eclipse.collections.impl.block.factory.Predicates;
 import org.eclipse.collections.impl.list.mutable.FastList;
 import org.eclipse.collections.impl.test.Verify;
 import org.junit.Assert;
@@ -26,6 +27,8 @@ import org.junit.Test;
 
 import java.util.Collections;
 import java.util.Comparator;
+
+import javax.sound.sampled.Line;
 
 public class Exercise8Test extends CompanyDomainForKata
 {
@@ -90,8 +93,14 @@ public class Exercise8Test extends CompanyDomainForKata
     public void whoOrderedSaucers()
     {
         MutableList<Customer> customersWithSaucers = company.getCustomers()
-                .select(c -> c.getOrders().flatCollect(o -> o.getLineItems())
-                .anySatisfy(l -> l.getName().equals("saucer")));
+                .select(Predicates.attributeAnySatisfy(
+                        Customer::getOrders,
+                        Predicates.attributeAnySatisfy(
+                                Order.TO_LINE_ITEMS,
+                                Predicates.attributeEqual(LineItem.TO_NAME, "saucer")
+                        )
+                ));
+
         Verify.assertSize("customers with saucers", 2, customersWithSaucers);
     }
 
@@ -117,8 +126,12 @@ public class Exercise8Test extends CompanyDomainForKata
     @Test
     public void mostExpensiveItem()
     {
-        MutableListMultimap<Double, Customer> multimap = company.getCustomers()
-                .groupBy(c -> c.getOrders().flatCollect(o -> o.getLineItems()).maxBy(LineItem::getValue).getValue());
+        MutableListMultimap<Double, Customer> multimap = company.getCustomers().groupBy(customer ->
+                customer.getOrders()
+                        .asLazy()
+                        .flatCollect(Order.TO_LINE_ITEMS)
+                        .collect(LineItem::getValue)
+                        .max());
         Assert.assertEquals(3, multimap.size());
         Assert.assertEquals(2, multimap.keysView().size());
         Assert.assertEquals(

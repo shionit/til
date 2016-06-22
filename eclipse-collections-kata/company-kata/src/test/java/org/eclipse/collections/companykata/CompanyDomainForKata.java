@@ -39,8 +39,8 @@ public abstract class CompanyDomainForKata
     {
         Order fredOrder = new Order();
         fredOrder.addLineItem(new LineItem("shed", 50.0));
-        fredOrder.addLineItem(new LineItem("cup", 1.5), 3);
-        fredOrder.addLineItem(new LineItem("saucer", 1.0), 3);
+        fredOrder.addLineItems(new LineItem("cup", 1.5), 3);
+        fredOrder.addLineItems(new LineItem("saucer", 1.0), 3);
         fredOrder.addLineItem(new LineItem("chair", 12.50));
         fredOrder.addLineItem(new LineItem("table", 1.0));
 
@@ -51,8 +51,8 @@ public abstract class CompanyDomainForKata
         Order maryOrder = new Order();
         maryOrder.addLineItem(new LineItem("cat", 150.0));
         maryOrder.addLineItem(new LineItem("big shed", 500.0));
-        maryOrder.addLineItem(new LineItem("cup", 1.5), 4);
-        maryOrder.addLineItem(new LineItem("saucer", 1.5), 4);
+        maryOrder.addLineItems(new LineItem("cup", 1.5), 4);
+        maryOrder.addLineItems(new LineItem("saucer", 1.5), 4);
         maryOrder.addLineItem(new LineItem("sofa", 120.0));
         maryOrder.addLineItem(new LineItem("dog", 75.0));
 
@@ -62,7 +62,7 @@ public abstract class CompanyDomainForKata
 
         Order billOrder1 = new Order();
         billOrder1.addLineItem(new LineItem("shed", 50.0));
-        billOrder1.addLineItem(new LineItem("gnome", 7.50), 43);
+        billOrder1.addLineItems(new LineItem("gnome", 7.50), 43);
 
         Order billOrder2 = new Order();
         billOrder2.addLineItem(new LineItem("bowl", 1.25));

@@ -10,7 +10,9 @@
 
 package org.eclipse.collections.companykata;
 
+import org.eclipse.collections.api.bag.MutableBag;
 import org.eclipse.collections.api.block.function.Function;
+import org.eclipse.collections.impl.bag.mutable.HashBag;
 import org.eclipse.collections.impl.block.function.AddFunction;
 import org.eclipse.collections.impl.collection.mutable.CollectionAdapter;
 import org.eclipse.collections.impl.utility.Iterate;
@@ -34,7 +36,7 @@ public class Order
     private static int nextOrderNumber = 1;
 
     private final int orderNumber;
-    private final List<LineItem> lineItems = new ArrayList<>();
+    private final MutableBag<LineItem> lineItems = HashBag.newBag();
     private boolean isDelivered;
 
     public Order()
@@ -63,16 +65,14 @@ public class Order
         this.lineItems.add(aLineItem);
     }
 
-    public void addLineItem(LineItem srcItem, int count)
+    public void addLineItems(LineItem aLineItem, int count)
     {
-        for (int i = 0; i < count; i++) {
-            this.lineItems.add(new LineItem(srcItem.getName(), srcItem.getValue()));
-        }
+        this.lineItems.addOccurrences(aLineItem, count);
     }
 
     public List<LineItem> getLineItems()
     {
-        return this.lineItems;
+        return this.lineItems.toList();
     }
 
     @Override
