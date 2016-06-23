@@ -12,6 +12,7 @@ package org.eclipse.collections.petkata;
 
 import org.eclipse.collections.api.bag.MutableBag;
 import org.eclipse.collections.api.block.function.Function;
+import org.eclipse.collections.api.block.predicate.Predicate;
 import org.eclipse.collections.api.list.MutableList;
 import org.eclipse.collections.impl.bag.mutable.HashBag;
 import org.eclipse.collections.impl.block.factory.Predicates2;
@@ -30,6 +31,8 @@ public class Person
     }
 
     public static Function<Person, String> TO_FIRST_NAME = Person::getFirstName;
+
+    public static Predicate<Person> HAS_CAT = person -> person.hasPet(PetType.CAT);
 
     public String getFirstName()
     {
