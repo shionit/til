@@ -10,6 +10,8 @@
 
 package org.eclipse.collections.petkata;
 
+import org.eclipse.collections.api.block.function.Function;
+
 public class Pet
 {
     private final PetType type;
@@ -22,6 +24,8 @@ public class Pet
         this.name = name;
         this.age = age;
     }
+
+    public static Function<Pet, String > TO_NAME = Pet::getName;
 
     public PetType getType()
     {

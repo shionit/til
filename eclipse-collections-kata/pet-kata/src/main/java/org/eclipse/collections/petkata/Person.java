@@ -11,6 +11,7 @@
 package org.eclipse.collections.petkata;
 
 import org.eclipse.collections.api.bag.MutableBag;
+import org.eclipse.collections.api.block.function.Function;
 import org.eclipse.collections.api.list.MutableList;
 import org.eclipse.collections.impl.bag.mutable.HashBag;
 import org.eclipse.collections.impl.block.factory.Predicates2;
@@ -27,6 +28,8 @@ public class Person
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
+    public static Function<Person, String> TO_FIRST_NAME = Person::getFirstName;
 
     public String getFirstName()
     {
