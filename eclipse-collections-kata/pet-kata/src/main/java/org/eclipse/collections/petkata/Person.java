@@ -32,8 +32,6 @@ public class Person
 
     public static Function<Person, String> TO_FIRST_NAME = Person::getFirstName;
 
-    public static Predicate<Person> HAS_CAT = person -> person.hasPet(PetType.CAT);
-
     public String getFirstName()
     {
         return this.firstName;
