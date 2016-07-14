@@ -10,20 +10,13 @@
 
 package org.eclipse.collections.petkata;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.eclipse.collections.api.list.MutableList;
 import org.eclipse.collections.api.partition.list.PartitionMutableList;
 import org.eclipse.collections.api.set.MutableSet;
-import org.eclipse.collections.api.set.primitive.IntSet;
 import org.eclipse.collections.api.set.primitive.MutableIntSet;
-import org.eclipse.collections.impl.block.factory.Predicates;
-import org.eclipse.collections.impl.block.procedure.primitive.CollectIntProcedure;
 import org.eclipse.collections.impl.factory.Sets;
 import org.eclipse.collections.impl.factory.primitive.IntSets;
 import org.eclipse.collections.impl.list.mutable.FastList;
-import org.eclipse.collections.impl.set.mutable.UnifiedSet;
 import org.eclipse.collections.impl.test.Verify;
 import org.junit.Assert;
 import org.junit.Test;
@@ -34,7 +27,7 @@ public class Exercise5Test extends PetDomainForKata
     public void partitionPetAndNonPetPeople()
     {
         PartitionMutableList<Person> partitionMutableList =
-                this.people.partitionWhile(Predicates.attributeGreaterThan(Person::getNumberOfPets, 0));
+                this.people.partition(Person::isPetPerson);
         Verify.assertSize(7, partitionMutableList.getSelected());
         Verify.assertSize(1, partitionMutableList.getRejected());
     }
@@ -50,8 +43,7 @@ public class Exercise5Test extends PetDomainForKata
     @Test
     public void getAveragePetAge()
     {
-        MutableList<Pet> pets = this.people.flatCollect(Person::getPets);
-        double averagePetAge = pets.sumOfDouble(Pet::getAge) / pets.size();
+        double averagePetAge = this.people.flatCollect(Person::getPets).collectDouble(Pet::getAge).average();
         Assert.assertEquals(1.8888888888888888, averagePetAge, 0.00001);
     }
 
@@ -59,7 +51,7 @@ public class Exercise5Test extends PetDomainForKata
     public void addPetAgesToExistingSet()
     {
         MutableIntSet petAges = IntSets.mutable.with(5);
-        petAges.addAll(this.people.flatCollect(Person::getPets).collectInt(Pet::getAge));
+        this.people.flatCollect(Person::getPets).collectInt(Pet::getAge, petAges);
         Assert.assertEquals(IntSets.mutable.with(1, 2, 3, 4, 5), petAges);
     }
 
@@ -81,9 +73,8 @@ public class Exercise5Test extends PetDomainForKata
                 new Person("John", "Doe")
         );
 
-        MutableSet<Integer> petAges = people.flatCollect(Person::getPets).collect(Pet::getAge).toSet();
+        MutableIntSet petAges = people.flatCollect(Person::getPets).collectInt(Pet::getAge).toSet();
 
-        Assert.assertEquals(Sets.mutable.with(1, 2, 3, 4), petAges);
-        Assert.assertEquals(IntSets.mutable.with(1, 2, 3, 4), IntSets.mutable.withAll(petAges.collectInt(Integer::intValue)));
+        Assert.assertEquals(IntSets.mutable.with(1, 2, 3, 4), petAges);
     }
 }
