@@ -6,19 +6,19 @@
 score = 70
 
 if score >= 80:
-    print "pass!"
+    print("pass!")
 else:
-    print "not pass!"
+    print("not pass!")
 
 # 1 liner
-print "pass!" if score >= 80 else "not pass!"
+print("pass!" if score >= 80 else "not pass!")
 
 if score >= 80:
-    print "OK!"
+    print("OK!")
 elif score >= 60:
-    print "so so"
+    print("so so")
 else:
-    print "oh...."
+    print("oh....")
     
 if 40 <= score < 60:
-    print "mmmmmmm"
+    print("mmmmmmm")

@@ -10,17 +10,17 @@ class Person(object):
         self.name = name
 
     def greet(self):
-        print "my name is %s" % self.name
+        print("my name is %s" % self.name)
 
 # class extend
 class SuperPerson(Person):
     def shout(self):
-        print "%s is SUPER!" % self.name
+        print("%s is SUPER!" % self.name)
 
 bob = Person("Bob")
 tom = SuperPerson("Tom")
 
-print bob.name
+print(bob.name)
 bob.greet()
 tom.greet()
 tom.shout()

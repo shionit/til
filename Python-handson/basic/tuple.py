@@ -3,11 +3,11 @@
 
 a = (1, 5, 8)
 
-print a
+print(a)
 
 # len []
 
-print a[0]
+print(a[0])
 
 #a[0] = 10 error
 
@@ -15,9 +15,9 @@ print a[0]
 
 b = list(a)
 
-print b
+print(b)
 
 c = tuple(b)
 
-print c
+print(c)
 
