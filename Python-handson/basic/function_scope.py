@@ -5,8 +5,8 @@ name = "dotinstall"
 
 def hello():
     name = "taguchi"
-    print name
+    print(name)
 
-print name
+print(name)
 
 hello()

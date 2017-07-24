@@ -7,7 +7,7 @@ while n < 10:
     if n == 3:
         n += 1
         continue
-    print n
+    print(n)
     n += 1
 else:
-    print "end"
+    print("end")
