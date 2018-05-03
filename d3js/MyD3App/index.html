@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>D3.js Practice</title>
+</head>
+<body>
+  <svg width="600" height="240">
+    <circle/>
+    <circle/>
+    <circle/>
+  </svg>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      var WIDTH = 600;
+      var HEIGHT = 240;
+      var data = [15, 20, 5];
+
+      var circles = d3.select('svg').selectAll('circle').data(data);
+
+      circles
+        .attr('cx', function(d, i) {
+          return i * 50 + 50;
+        })
+        .attr('cy', HEIGHT + 100)
+        .attr('r', function(d) {
+          return d;
+        })
+        .attr('fill', 'pink')
+        .transition()
+          .duration(800)
+          .delay(function(d, i) {
+            return i * 200;
+          })
+          // .ease(d3.easeBounce)
+          .ease(d3.easeElastic)
+          .attr('cy', HEIGHT / 2)
+        .transition()
+          .attr('cy', -100);
+    })();
+  </script>
+</body>
+</html>
