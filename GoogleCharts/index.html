@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Chart Tools</title>
+</head>
+<body>
+  <div id="target"></div>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      function drawChart() {
+        var target = document.getElementById('target');
+        var data;
+        var options = {
+          title: 'My Chart',
+          width: 500,
+          height: 300,
+          backgroundColor: '#f8f8f8f',
+          colors: ["#aaa", "#bcf", "cde"],
+          slices: [1, {offset: 0.2}],
+          // pieHole: 0.4,
+          is3D: true,
+        };
+        var chart = new google.visualization.PieChart(target);
+        data = new google.visualization.arrayToDataTable([
+          ['Language', 'Votes'],
+          ['PHP', 100],
+          ['Ruby', 30],
+          ['Python', 10],
+        ]);
+        chart.draw(data, options);
+      }
+
+      google.charts.load('current', {packages: ['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+    })();
+  </script>
+</body>
+</html>

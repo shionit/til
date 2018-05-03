@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Chart Tools</title>
+</head>
+<body>
+  <div id="target"></div>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      function drawChart() {
+        var target = document.getElementById('target');
+        var data;
+        var options = {
+          title: 'My Chart',
+          width: 500,
+          height: 300,
+          animation: {
+            startup: true,
+            duration: 800,
+            easing: 'inAndOut'
+          },
+          isStacked: true,
+        };
+        var chart = new google.visualization.BarChart(target);
+        data = new google.visualization.arrayToDataTable([
+          ['Team', 'Item-1', 'Item-2'],
+          ['A', 12, 38],
+          ['B', 42, 55],
+          ['C', 11, 29],
+        ]);
+        chart.draw(data, options);
+      }
+
+      google.charts.load('current', { packages: ['corechart'] });
+      google.charts.setOnLoadCallback(drawChart);
+    })();
+  </script>
+</body>
+
+</html>
