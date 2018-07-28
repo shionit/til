@@ -3,11 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <title>My Page</title>
+  <script>
+    FontAwesomeConfig = { searchPseudoElements: true }
+  </script>
   <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
   <style>
     .my-icon {
       font-size: 32px;
       color: orange;
+    }
+    .bg-pink {
+      background-color: pink;
+    }
+    a.home::before {
+      display: none;
+      font-family: 'Font Awesome 5 Solid';
+      content: '\f015';
     }
   </style>
 </head>
@@ -22,5 +33,88 @@
   <i class="far fa-flag"></i>
   <i class="fab fa-twitter"></i>
   <i class="fas fa-camera-retro"></i>
+  <hr>
+  <!--
+    Size:
+    - fa-xs
+    - fa-sm
+    - fa-lg
+    - fa-2x ... fa-10x
+  -->
+  <i class="fas fa-flag"></i>
+  <i class="fas fa-flag fa-xs"></i>
+  <i class="fas fa-flag fa-sm"></i>
+  <i class="fas fa-flag fa-lg"></i>
+  <i class="fas fa-flag fa-5x"></i>
+  <i class="fas fa-flag fa-10x"></i>
+  <hr>
+  <!-- fa-fw (fixed width) -->
+  <div><i class="fas fa-fw fa-home"></i> Home</div>
+  <div><i class="fas fa-fw fa-info"></i> About</div>
+  <div><i class="fas fa-fw fa-question"></i> Help</div>
+  <hr>
+  <!-- list -->
+  <ul class="fa-ul">
+    <li><span class="fa-li"><i class="fas fa-home"></i></span> Home</li>
+    <li><span class="fa-li"><i class="fas fa-info"></i></span> About</li>
+    <li><span class="fa-li"><i class="fas fa-question"></i></span> Help</li>
+  </ul>
+  <hr>
+  <!-- spinner -->
+  <i class="fas fa-spinner fa-spin fa-3x"></i>
+  <i class="fas fa-spinner fa-pulse fa-3x"></i>
+  <i class="fas fa-sync fa-spin"></i>
+  <hr>
+  <!--
+    Transform:
+    - Scaling
+    - Positioning
+    - Rotating
+  -->
+  <i class="fas fa-arrow-up"></i>
+  <i class="fas fa-arrow-up" data-fa-transform="grow-16"></i>
+  <i class="fas fa-arrow-up" data-fa-transform="shrink-8"></i>
+  <hr>
+  <i class="fas fa-arrow-up bg-pink"></i>
+  <i class="fas fa-arrow-up bg-pink" data-fa-transform="grow-16"></i>
+  <hr>
+  <i class="fas fa-arrow-up bg-pink"></i>
+  <i class="fas fa-arrow-up bg-pink fa-2x"></i>
+  <hr>
+  <i class="fas fa-arrow-up"></i>
+  <i class="fas fa-arrow-up bg-pink" data-fa-transform="up-8"></i>
+  <i class="fas fa-arrow-up bg-pink" data-fa-transform="right-8"></i>
+  <hr>
+  <i class="fas fa-arrow-up"></i>
+  <i class="fas fa-arrow-up bg-pink" data-fa-transform="rotate-30"></i>
+  <i class="fas fa-arrow-up bg-pink" data-fa-transform="rotate-60"></i>
+  <i class="fas fa-arrow-up bg-pink" data-fa-transform="rotate--30"></i>
+  <hr>
+  <i class="fas fa-flag"></i>
+  <i class="fas fa-flag bg-pink" data-fa-transform="flip-h"></i>
+  <i class="fas fa-flag bg-pink" data-fa-transform="flip-v"></i>
+  <i class="fas fa-flag bg-pink" data-fa-transform="flip-h flip-v"></i>
+  <hr>
+  <!-- mask -->
+  <i class="fas fa-lock"></i>
+  <i class="fas fa-file"></i>
+  <hr>
+  <i class="fas fa-lock fa-3x bg-pink" data-fa-mask="fas fa-file" data-fa-transform="shrink-10 down-1.2"></i>
+  <hr>
+  <span class="fa-layers fa-fw bg-pink fa-5x">
+    <i class="fas fa-file"></i>
+    <i class="fas fa-lock fa-inverse" data-fa-transform="shrink-10 down-1.2"></i>
+  </span>
+  <span class="fa-layers fa-fw bg-pink fa-5x">
+    <i class="fas fa-file"></i>
+    <i class="fas fa-lock" data-fa-transform="shrink-10 down-1.2" style="color:aqua"></i>
+  </span>
+  <hr>
+  <span class="fa-layers bg-pink fa-5x">
+    <i class="fas fa-file"></i>
+    <span class="fa-layers-text" data-fa-transform="shrink-12 down-1.2" style="color:orange; font-weight: bold">PDF</span>
+  </span>
+  <hr>
+  <a href="#" class="home">Home</a>
 </body>
 </html>
