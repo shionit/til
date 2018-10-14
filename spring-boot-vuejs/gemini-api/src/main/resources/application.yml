@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/springboot-flyway?autoReconnect=true&useSSL=false
+    username: root
+    password: ''
+    driver-class-name: com.mysql.jdbc.Driver
+
