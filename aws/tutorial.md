@@ -1,4 +1,7 @@
+training https://aws.amazon.com/jp/getting-started/tutorials/
+
 ## 2020/01/03
+
 - [仮想マシンの起動 : EC2](https://aws.amazon.com/jp/getting-started/tutorials/launch-a-virtual-machine/)
     - 読んだだけ。内容的には経験済みだったのでOK
 
@@ -29,11 +32,16 @@
 
 ## 2020/02/11
 
-- [Docker コンテナのデプロイ方法 – AWS](https://aws.amazon.com/jp/getting-started/tutorials/deploy-docker-containers/?trk=gs_card)
+- [Docker コンテナのデプロイ方法 – AWS](https://aws.amazon.com/jp/getting-started/tutorials/deploy-docker-containers/)
     - クラスタは起動したものの（Running）コンテナインスタンスは起動せず、、、なので、動作の確認もできず。。。
 
 ## 2020/02/22
 
+- [NoSQL テーブルを作成してクエリを実行する方法 – AWS](https://aws.amazon.com/jp/getting-started/tutorials/create-nosql-table/)
+  - Roleを自動付与できないのが不便だ...
+  - これを参考に解決 https://dev.classmethod.jp/cloud/aws/iam-pass-role/
+  - next step
+    - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.html
 
 
 ## Next Step
@@ -45,7 +53,6 @@
 
 - [Tutorial: Using AWS Lambda with Amazon S3 - AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html)
 
-- [NoSQL テーブルを作成してクエリを実行する方法 – AWS](https://aws.amazon.com/jp/getting-started/tutorials/create-nosql-table/?trk=gs_card&e=gs&p=gsrc)
 - [E メールの送信方法 – アマゾン ウェブ サービス (AWS)](https://aws.amazon.com/jp/getting-started/tutorials/send-an-email/?trk=gs_card)
 - [ドメイン名を登録する方法 - アマゾン ウェブ サービス](https://aws.amazon.com/jp/getting-started/tutorials/get-a-domain/)
 
