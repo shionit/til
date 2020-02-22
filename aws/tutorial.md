@@ -32,16 +32,21 @@ training https://aws.amazon.com/jp/getting-started/tutorials/
 
 ## 2020/02/11
 
-- [Docker コンテナのデプロイ方法 – AWS](https://aws.amazon.com/jp/getting-started/tutorials/deploy-docker-containers/)
+- [Docker コンテナのデプロイ方法 – AWS : ECS](https://aws.amazon.com/jp/getting-started/tutorials/deploy-docker-containers/)
     - クラスタは起動したものの（Running）コンテナインスタンスは起動せず、、、なので、動作の確認もできず。。。
 
 ## 2020/02/22
 
-- [NoSQL テーブルを作成してクエリを実行する方法 – AWS](https://aws.amazon.com/jp/getting-started/tutorials/create-nosql-table/)
+- [NoSQL テーブルを作成してクエリを実行する方法 – AWS : DynamoDB](https://aws.amazon.com/jp/getting-started/tutorials/create-nosql-table/)
   - Roleを自動付与できないのが不便だ...
   - これを参考に解決 https://dev.classmethod.jp/cloud/aws/iam-pass-role/
   - next step
     - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.html
+
+- [E メールの送信方法 – アマゾン ウェブ サービス (AWS) : SES](https://aws.amazon.com/jp/getting-started/tutorials/send-an-email/)
+  - `Send Test Email` の Message 部分は、英語に切り替えないと正しく表示されない
+  - 本気で使う際はここらへんを参考に
+    - https://dev.classmethod.jp/cloud/aws/amazon-ses-build-and-practice/
 
 
 ## Next Step
@@ -53,6 +58,5 @@ training https://aws.amazon.com/jp/getting-started/tutorials/
 
 - [Tutorial: Using AWS Lambda with Amazon S3 - AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html)
 
-- [E メールの送信方法 – アマゾン ウェブ サービス (AWS)](https://aws.amazon.com/jp/getting-started/tutorials/send-an-email/?trk=gs_card)
 - [ドメイン名を登録する方法 - アマゾン ウェブ サービス](https://aws.amazon.com/jp/getting-started/tutorials/get-a-domain/)
 
