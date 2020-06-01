@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="app">
+  <button v-on:click="handleClick">Click</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    methods: {
+      handleClick: function(event) {
+        alert(event.target);
+      }
+    }
+  })
+</script>
+</body>
+</html>
