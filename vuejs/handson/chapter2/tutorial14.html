@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  </style>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="(item, index) in list" v-bind:key="item.id" v-if="item.hp">
+      ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+      <span v-if="item.hp < 50">瀕死！</span>
+      <button v-on:click="doAttack(index)">攻撃する</button>
+    </li>
+  </ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      list: [
+        {id: 1, name: 'スライム', hp: 100 },
+        { id: 2, name: 'ゴブリン', hp: 200 },
+        { id: 3, name: 'ドラゴン', hp: 500 }
+      ]
+    },
+    methods: {
+      doAttack: function(index) {
+        this.list[index].hp -= 10
+      }
+    }
+  })
+</script>
+</body>
+</html>

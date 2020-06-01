@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    .item {
+      padding: 4px 8px;
+      transition: background-color 0.4s;
+    }
+    .is-active {
+      background: #ffeaea;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <button v-on:click="isActive=!isActive">isActiveを切り替える</button>
+  <p v-bind:class="{ child: isChild, 'is-active': isActive }" class="item">
+    動的なクラス
+  </p>
+  <p v-bind:style="{ color: textColor, backgroundColor: bgColor }" class="item">
+    動的なスタイル
+  </p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      isChild: true,
+      isActive: true,
+      textColor: 'red',
+      bgColor: 'lightgray'
+    }
+  })
+</script>
+</body>
+</html>

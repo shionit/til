@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  @keyframes cloak-in {
+    0% {
+      opacity: 0;
+    }
+  }
+  #app {
+    animation: cloak-in 3s;
+  }
+  #app[v-cloak] {
+    opacity: 0;
+  }
+  </style>
+</head>
+<body>
+<div id="app" v-cloak>
+  {{ message }}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue.js'
+    }
+  })
+</script>
+</body>
+</html>

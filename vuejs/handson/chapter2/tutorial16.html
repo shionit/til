@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  </style>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <button v-on:click="handleClick">カウントアップ</button>
+    <button v-on:click="show=!show">表示/非表示</button>
+    <span ref="count" v-if="show">0</span>
+  </ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      show: true
+    },
+    methods: {
+      handleClick() {
+        var count = this.$refs.count
+        if (count) {
+          count.innerText = parseInt(count.innerText, 10) + 1
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
