@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="app">
+  <input v-bind:value="message" v-on:change="handleInput">
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue.js'
+    },
+    methods: {
+      handleInput: function (event) {
+        this.message = event.target.value
+      },
+    }
+  })
+</script>
+</body>
+</html>

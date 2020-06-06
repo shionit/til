@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  </style>
+</head>
+<body>
+<div id="app">
+  <select v-model="val">
+    <option disabled="disabled">選択してください</option>
+    <option value="a">A</option>
+    <option value="b">B</option>
+    <option value="c">C</option>
+  </select>
+  <p>{{ val }}</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      val: ''
+    }
+  })
+</script>
+</body>
+</html>
