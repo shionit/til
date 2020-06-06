@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  </style>
+</head>
+<body>
+<div id="app">
+  <div v-on:click.right="handler">example</div>
+  <div v-on:click.right.prevent="handler">example</div>
+  <div v-on:click="handler('div1')">
+    div1
+    <a href="#top" v-on:click.stop="handler('div2')">div2</a>
+  </div>
+  <div v-on:click="handler('div1')">
+    div1
+    <a href="#top" v-on:click.prevent="handler('div2')">div2</a>
+  </div>
+  <div v-on:click.capture="handler('div1')">
+    div1
+    <div v-on:click="handler('div2')">
+      div2
+      <div v-on:click="handler('div3')">div3</div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    methods: {
+      handler: function(comment) {
+        console.log(comment)
+      }
+    }
+  })
+</script>
+</body>
+</html>
