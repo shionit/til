@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="app">
+  <p>X: {{ halfPoint.x }}</p>
+  <p>Y: {{ halfPoint.y }}</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      width: 800,
+      height: 600
+    },
+    computed: {
+      halfWidth: function () {
+        return this.width / 2
+      },
+      halfHeight: function () {
+        return this.height / 2
+      },
+      halfPoint: function () {
+        return {
+          x: this.halfWidth,
+          y: this.halfHeight
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
