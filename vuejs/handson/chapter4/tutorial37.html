@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  </style>
+</head>
+<body>
+<div id="app">
+  <button v-on:click="list.push(list.length+1)">追加</button>
+  <ul ref="list">
+    <li v-for="item in list">{{ item }}</li>
+  </ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      list: []
+    },
+    watch: {
+      list: function () {
+        console.log('通常', this.$refs.list.offsetHeight)
+        this.$nextTick(function () {
+          console.log('nextTick:', this.$refs.list.offsetHeight)
+        })
+      }
+    }
+  })
+</script>
+</body>
+</html>
