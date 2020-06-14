@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  </style>
+</head>
+<body>
+<div id="app">
+  <my-component-a></my-component-a>
+  <my-component-b></my-component-b>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  let mixin = {
+    created: function () {
+      this.hello()
+    },
+    methods: {
+      hello: function () {
+        console.log('hello from mixin!')
+      }
+    }
+  };
+  Vue.component('my-component-a', {
+    mixins: [mixin], // ミックスインを登録
+    template: '<p>MyComponentA</p>'
+  })
+  Vue.component('my-component-b', {
+    mixins: [mixin], // ミックスインを登録
+    template: '<p>MyComponentB</p>'
+  })
+  let app = new Vue({
+    el: "#app",
+    data: {
+    }
+  });
+</script>
+</body>
+</html>

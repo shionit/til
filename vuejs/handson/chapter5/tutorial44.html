@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="app">
+  <my-component v-bind:name.sync="name" v-bind:hp.sync="hp"></my-component>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  Vue.component('my-component', {
+    template: '<div class="my-component">\
+      <p>名前.{{ name }} HP.{{ hp }}</p>\
+      <p>名前 <input v-model="localName"></p>\
+      <p>HP <input size="5" v-model.number="localHp"></p>\
+      </div>',
+    props: {
+      name: String,
+      hp: Number,
+    },
+    computed: {
+      localName: {
+        get: function () {
+          return this.name
+        },
+        set: function (val) {
+          this.$emit('update:name', val)
+        }
+      },
+      localHp: {
+        get: function () {
+          return this.hp
+        },
+        set: function (val) {
+          this.$emit('update:hp', val)
+        }
+      }
+    }
+  })
+  let app = new Vue({
+    el: '#app',
+    data: {
+      name: 'スライム',
+      hp: 100,
+    }
+  })
+</script>
+</body>
+</html>

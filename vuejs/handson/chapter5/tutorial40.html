@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  </style>
+</head>
+<body>
+<div id="app">
+  <example v-bind:value="value"></example>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  function Cat(name) {
+    this.name = name;
+  }
+  Vue.component('example', {
+    template: '<div>吾輩は猫である。名は {{ value.name }}</div>',
+    props: {
+      value: {
+        type: Cat,
+        default: new Cat('まだ無い'),
+        required: true,
+        validator: function (value) {
+          return value.name
+        }
+      }
+    }
+  });
+  var app = new Vue({
+    el: '#app',
+    data: {
+      value: new Cat('たま')
+    }
+  })
+</script>
+</body>
+</html>

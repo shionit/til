@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="app">
+  <ul>
+    <comp-child v-for="item in list"
+      v-bind:key="item.id"
+      v-bind="item"
+      v-on:attack="handleAttack"></comp-child>
+  </ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  Vue.component('comp-child', {
+    template: '<li>{{ name }} HP.{{ hp }} ' +
+      '<button v-on:click="doAttack">攻撃する</button></li>',
+    props: {
+      id: Number,
+      name: String,
+      hp: Number,
+    },
+    methods: {
+      doAttack: function () {
+        this.$emit('attack', this.id)
+      }
+    }
+  })
+  var app = new Vue({
+    el: '#app',
+    data: {
+      list: [
+        { id: 1, name: 'スライム', hp: 100 },
+        { id: 2, name: 'ゴブリン', hp: 200 },
+        { id: 3, name: 'ドラゴン', hp: 500 }
+      ]
+    },
+    methods: {
+      handleAttack: function (id) {
+        let item = this.list.find(el => el.id === id);
+        if (item !== undefined && item.hp > 0) item.hp -= 10;
+      }
+    }
+  })
+</script>
+</body>
+</html>
