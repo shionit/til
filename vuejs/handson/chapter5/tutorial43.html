@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="app">
+  <comp-child ref="child"></comp-child>
+  <button v-on:click="handleClick">Click</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  Vue.component('comp-child', {
+    template: '<div>...</div>',
+    created: function () {
+      this.$on('open', function () {
+        console.log('なにか処理')
+      })
+    }
+  })
+  let app = new Vue({
+    el: '#app',
+    methods: {
+      handleClick: function () {
+        this.$refs.child.$emit('open')
+      }
+    }
+  })
+</script>
+</body>
+</html>

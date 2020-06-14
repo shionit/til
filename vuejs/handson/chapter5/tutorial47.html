@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  </style>
+</head>
+<body>
+<div id="app">
+  <button v-on:click="current='comp-board'">メッセージ一覧</button>
+  <button v-on:click="current='comp-form'">投稿フォーム</button>
+  <keep-alive>
+    <div v-bind:is="current"></div>
+  </keep-alive>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  Vue.component('comp-board', {
+    template: '<div>Message Board</div>',
+  });
+  Vue.component('comp-form', {
+    template: '<div>Form<textarea v-model="message"></textarea></div>',
+    data: function () {
+      return {
+        message: ''
+      }
+    }
+  });
+  let app = new Vue({
+    el: '#app',
+    data: {
+      current: 'comp-board'
+    }
+  })
+</script>
+</body>
+</html>

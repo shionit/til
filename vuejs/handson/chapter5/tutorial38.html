@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="app">
+  <comp-child val="これは子A"></comp-child>
+  <comp-child val="これは子B"></comp-child>
+  <p></p>
+  <comp-child :val="valueA"></comp-child>
+  <comp-child :val="valueB"></comp-child>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  Vue.component('comp-child', {
+    template: '<p>{{ val }}</p>',
+    props: ['val']
+  });
+  var app = new Vue({
+    el: '#app',
+    data: {
+      valueA: 'これはデータA',
+      valueB: 'これはデータB',
+    }
+  })
+</script>
+</body>
+</html>

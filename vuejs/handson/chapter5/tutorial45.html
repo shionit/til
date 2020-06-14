@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="app">
+  <button v-on:click="current ^= 1">コンポーネントを切り替え</button>
+  <div v-bind:is="component"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  Vue.component('my-component-a', {
+    template: '<div class="my-component-a">component A</div>'
+  });
+  Vue.component('my-component-b', {
+    template: '<div class="my-component-b">component B</div>'
+  });
+  let app = new Vue({
+    el: "#app",
+    data: {
+      componentTypes: ['my-component-a', 'my-component-b'],
+      current: 0,
+    },
+    computed: {
+      component: function () {
+        return this.componentTypes[this.current];
+      }
+    }
+  });
+</script>
+</body>
+</html>

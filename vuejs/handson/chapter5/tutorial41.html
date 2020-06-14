@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="app">
+  <comp-child v-on:childs-event="parentsMethod"></comp-child>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  Vue.component('comp-child', {
+    template: '<button v-on:click="handleClick">イベント発火</button>',
+    methods: {
+      handleClick: function () {
+        this.$emit('childs-event')
+      }
+    }
+  })
+  var app = new Vue({
+    el: '#app',
+    methods: {
+      parentsMethod: function () {
+        alert('イベントをキャッチ！ ')
+      }
+    }
+  })
+</script>
+</body>
+</html>
