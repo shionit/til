@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  </style>
+</head>
+<body>
+<div id="app">
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  // const
+  let x = 0;
+  console.log(x++);
+  const y = 0;
+// console.log(y++); // Assignment to constant variable.
+
+  // scope
+  { 
+    let z = 1;
+  }
+//  console.log(z); // z is not defined
+
+  // array
+  const array = [1, 2];
+  array.push(3);
+  console.log(array);
+  array.length = 0;
+  console.log(array);
+
+  // arrow function
+  const newArray = array.map(el => el * 2);
+  console.log(newArray);
+
+  // template literal
+  const name = 'たま'
+  const template = `
+    <div class="template">
+      <strong>${ name }</strong>
+    </div>`
+  console.log(template);
+
+  // Object initialization
+  const a = 'foo'
+  const b = 'bar'
+  const newObject = { a, b }
+
+  // spread
+  function spreadTest() {
+    function myFunction(a, b, c) {
+      console.log(a + b + c)
+    }
+    const array = [1, 2, 3]
+    const newArray = [...array, 4]
+    console.log(newArray)
+    myFunction(...array)
+  }
+  spreadTest();
+
+  // find / findIndex
+  function findTest() {
+    const array = [
+      { id: 1, name: 'りんご' },
+      { id: 2, name: 'ばなな' }
+    ]
+    const result = array.find(el => el.id === 2)
+    const index = array.findIndex(el => el.id === 2)
+    console.log(result)
+    console.log(index)
+  }
+  findTest();
+
+  // Promise
+  function myPromise() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // success
+        resolve('success!')
+      }, 1000)
+    })
+  }
+  myPromise().then(value => {
+    console.log(value)
+  })
+
+  function myPromise2(num) {
+    return new Promise((resolve, reject) => {
+      if (num < 10) {
+        resolve('success!')
+      } else {
+        reject('error!')
+      }
+    })
+  }
+  myPromise2().catch(value => {
+    console.log(value)
+  })
+
+  myPromise().then(() => {
+    console.log('then called!')
+  }).catch(() => {
+    console.log('catch called!')
+  }).finally(() => {
+    // 成功でも失敗でも行われる
+    console.log('finally called!')
+  })
+
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      show: true
+    },
+  })
+</script>
+</body>
+</html>
