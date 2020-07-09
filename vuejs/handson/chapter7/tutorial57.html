@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  </style>
+</head>
+<body>
+<div id="app">
+  <my-component></my-component>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <my-component></my-component>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <my-component></my-component>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <my-component></my-component>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <my-component></my-component>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <p>aaa</p>
+  <my-component></my-component>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13"></script>
+<script>
+  let windowPlugin = {
+    install: function (Vue) {
+      // use Vue instance for plugin data
+      let store = new Vue({
+        data: {
+          scrollY: 0
+        }
+      });
+      // handle window scroll event
+      let timer = null;
+      window.addEventListener('scroll', function() {
+        if (timer === null) {
+          timer = setTimeout(function() {
+            store.scrollY = window.scrollY;
+            clearTimeout(timer);
+            timer = null;
+          }, 200);
+        }
+      });
+      Vue.prototype.$window = store.$data
+    }
+  }
+  // register plugin
+  Vue.use(windowPlugin);
+
+  Vue.component('my-component', {
+    template: '<div>{{ scrollY }}</div>',
+    computed: {
+      scrollY: function() {
+        return this.$window.scrollY
+      }
+    }
+  })
+  let app = new Vue({
+    el: '#app',
+    data: {
+      list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    }
+  })
+</script>
+</body>
+</html>
