@@ -1,0 +1,7 @@
+com/shionit/tddbc/FizzBuzzTest.java
+ com.shionit.tddbc.FizzBuzzTest
+ com.shionit.tddbc.FizzBuzzTest$convertメソッドは数を文字列に変換する
+ com.shionit.tddbc.FizzBuzzTest$convertメソッドは数を文字列に変換する$_3と5両方の倍数のときは数の代わりにFizzBuzzに変換する
+ com.shionit.tddbc.FizzBuzzTest$convertメソッドは数を文字列に変換する$_3の倍数のときは数の代わりにFizzに変換する
+ com.shionit.tddbc.FizzBuzzTest$convertメソッドは数を文字列に変換する$_5の倍数のときは数の代わりにBuzzに返還する
+ com.shionit.tddbc.FizzBuzzTest$convertメソッドは数を文字列に変換する$その他の数のときはそのまま文字列に変換する

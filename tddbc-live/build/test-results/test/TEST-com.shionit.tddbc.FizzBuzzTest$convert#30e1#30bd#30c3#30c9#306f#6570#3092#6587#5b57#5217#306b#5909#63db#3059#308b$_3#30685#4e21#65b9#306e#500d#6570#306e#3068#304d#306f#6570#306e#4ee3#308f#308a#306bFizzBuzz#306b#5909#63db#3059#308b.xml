@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shionit.tddbc.FizzBuzzTest$convertメソッドは数を文字列に変換する$_3と5両方の倍数のときは数の代わりにFizzBuzzに変換する" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-02-22T08:22:22" hostname="SKUBLUE-MacBook.local" time="0.057">
+  <properties/>
+  <testcase name="_15を渡すと文字列FizzBuzzを返す()" classname="com.shionit.tddbc.FizzBuzzTest$convertメソッドは数を文字列に変換する$_3と5両方の倍数のときは数の代わりにFizzBuzzに変換する" time="0.057"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

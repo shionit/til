@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shionit.tddbc.FizzBuzzTest$convertメソッドは数を文字列に変換する$_3の倍数のときは数の代わりにFizzに変換する" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-02-22T08:22:22" hostname="SKUBLUE-MacBook.local" time="0.002">
+  <properties/>
+  <testcase name="_3を渡すと文字列Fizzを返す()" classname="com.shionit.tddbc.FizzBuzzTest$convertメソッドは数を文字列に変換する$_3の倍数のときは数の代わりにFizzに変換する" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
